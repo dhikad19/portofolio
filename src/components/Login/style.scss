@@ -1,0 +1,36 @@
+.title-content {
+  font-weight: 500;
+}
+
+.login-container {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+
+.container img {
+  padding: 15px;
+  border-top-left-radius: 60px;
+  border-bottom-right-radius: 60px;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.form-container {
+  height: 100%;
+  margin: 0 auto;
+  max-width: 560px;
+}
