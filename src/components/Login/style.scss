@@ -34,3 +34,12 @@
   margin: 0 auto;
   max-width: 560px;
 }
+
+.login-bg {
+  background-image: url("/assets/background-blend.png");
+  background-size: cover; /* Cover the entire screen */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat;
+  height: 100vh; /* Full viewport height */
+  width: 100%;
+}

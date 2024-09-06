@@ -4,12 +4,17 @@
       <!-- <template v-slot:prepend>
         <v-app-bar-nav-icon></v-app-bar-nav-icon>
       </template> -->
-    
+
       <div class="app-bar__content d-flex align-center">
-        <v-img height="32" width="32" contain src="/images/logo.png" class="ml-4 mr-4"></v-img>
+        <v-img
+          height="32"
+          width="32"
+          contain
+          src="/images/logo.png"
+          class="ml-4 mr-4"></v-img>
         <p class="title-content">Foxi Dashboard</p>
       </div>
-      <div style="min-width: 450px;" class="d-flex align-center ml-8">
+      <div style="min-width: 450px" class="d-flex align-center ml-8">
         <v-row dense>
           <v-col cols="12">
             <v-autocomplete
@@ -25,23 +30,47 @@
               hide-details
               auto-select-first
               item-props
-              rounded
-            >
+              rounded>
             </v-autocomplete>
           </v-col>
         </v-row>
       </div>
       <v-spacer></v-spacer>
       <div class="mr-4 d-flex align-center">
-        <div style="height: 40px; min-width: 40px; border-radius: 50%; background-color: #f6f6f6;" class="d-flex align-center justify-center mr-4">
-          <v-icon size="23">mdi-cog-outline</v-icon>
+        <div
+          style="
+            height: 40px;
+            min-width: 40px;
+            border-radius: 50%;
+            background-color: #f6f6f6;
+          "
+          class="d-flex align-center justify-center mr-4">
+          <v-icon size="20" color="#4f4f4fa9">mdi-cog-outline</v-icon>
         </div>
-        <div style="height: 40px; min-width: 40px; border-radius: 50%; background-color: #f6f6f6;" class="d-flex align-center justify-center mr-4">
-          <v-icon size="23">mdi-bell-outline</v-icon>
+        <div
+          style="
+            height: 40px;
+            min-width: 40px;
+            border-radius: 50%;
+            background-color: #f6f6f6;
+          "
+          class="d-flex align-center justify-center mr-4">
+          <v-icon size="20" color="#4f4f4fa9">mdi-bell-outline</v-icon>
         </div>
-        <div style="height: 40px; width: 100%; border-radius: 40px; background-color: #f6f6f6;" class="pl-4 pr-4 d-flex align-center justify-center">
+        <div
+          style="
+            height: 40px;
+            width: 100%;
+            border-radius: 40px;
+            background-color: #f6f6f6;
+          "
+          class="pl-4 pr-4 d-flex align-center justify-center">
           <p class="pr-4 list-title">Dwi Andika</p>
-          <v-img height="20" width="20" contain src="images/male/variant-1.png"></v-img>
+          <v-img
+            height="20"
+            width="20"
+            contain
+            src="images/male/variant-1.png"></v-img>
         </div>
       </div>
     </v-app-bar>
@@ -49,9 +78,7 @@
       v-model="drawer"
       :rail="rail"
       permanent
-      @click="rail = false"
-    >
-    
+      @click="rail = false">
       <!-- <v-list-item
         prepend-avatar="https://randomuser.me/api/portraits/men/85.jpg"
         title="John Leider"
@@ -70,11 +97,19 @@
           <v-row dense>
             <v-col cols="12" v-for="(item, i) in list" :key="i">
               <v-item density="compact" nav v-slot="{ isSelected, toggle }">
-                <v-card flat :class="rail ? 'justify-center' : ''" class="d-flex align-center pa-2 ml-4 mr-4" @click="toggle" :color="isSelected ? '#ff83171f' : '#ffffff'">
+                <v-card
+                  flat
+                  :class="rail ? 'justify-center' : ''"
+                  class="d-flex align-center pa-2 ml-4 mr-4"
+                  @click="toggle"
+                  :color="isSelected ? '#ff83171f' : '#ffffff'">
                   <v-icon :color="isSelected ? '#ff8417' : '#4f4f4fa9'">
                     {{ item.icon }}
                   </v-icon>
-                  <p v-if="!rail" class="ml-4" :class="isSelected ? 'list-title__active' : 'list-title'">
+                  <p
+                    v-if="!rail"
+                    class="ml-4"
+                    :class="isSelected ? 'list-title__active' : 'list-title'">
                     {{ item.name }}
                   </p>
                 </v-card>
@@ -99,57 +134,55 @@
 
 <script>
   export default {
-    name: 'navigationComponent',
-    data () {
+    name: "navigationComponent",
+    data() {
       return {
-        selected: 'home',
+        selected: "home",
         drawer: true,
         rail: false,
         list: [
           {
-            name: 'Home',
+            name: "Home",
             addable: false,
-            icon: 'mdi-home-variant-outline',
-            value: 'home'
+            icon: "mdi-home-variant-outline",
+            value: "home",
           },
           {
-            name: 'Projects',
+            name: "Projects",
             addable: true,
-            icon: 'mdi-folder-open-outline',
-            value: 'projects'
+            icon: "mdi-folder-open-outline",
+            value: "projects",
           },
           {
-            name: 'Team',
+            name: "Team",
             addable: true,
-            icon: 'mdi-account-multiple-outline',
-            value: 'team'
+            icon: "mdi-account-multiple-outline",
+            value: "team",
           },
           {
-            name: 'Analitics',
+            name: "Analitics",
             addable: false,
-            icon: 'mdi-sine-wave',
-            value: 'analitics'
+            icon: "mdi-sine-wave",
+            value: "analitics",
           },
           {
-            name: 'Calendar',
+            name: "Calendar",
             addable: false,
-            icon: 'mdi-calendar-blank-outline',
-            value: 'calendar'
+            icon: "mdi-calendar-blank-outline",
+            value: "calendar",
           },
-        ]
-      }
+        ],
+      };
     },
-  }
+  };
 </script>
 
 <style>
-
-.v-field--variant-solo-filled {
-  box-shadow: none !important;
-}
-
+  .v-field--variant-solo-filled {
+    box-shadow: none !important;
+  }
 </style>
 
 <style lang="scss" scoped>
-@import './style.scss'
+  @import "./style.scss";
 </style>
