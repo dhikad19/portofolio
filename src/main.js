@@ -1,11 +1,17 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import vuetify from './plugins/vuetify'
-import { loadFonts } from './plugins/webfontloader'
-import router from './router'
+import { createApp } from "vue";
+import App from "./App.vue";
+import vuetify from "./plugins/vuetify";
+import { loadFonts } from "./plugins/webfontloader";
+import vue3GoogleLogin from "vue3-google-login";
+import router from "./router";
 
-loadFonts()
+const clientId = import.meta.env.VITE_CLIENT_ID;
 
-createApp(App).use(router)
+loadFonts();
+createApp(App)
+  .use(router)
   .use(vuetify)
-  .mount('#app')
+  .use(vue3GoogleLogin, {
+    clientId: clientId,
+  })
+  .mount("#app");

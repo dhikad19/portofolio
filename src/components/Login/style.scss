@@ -7,6 +7,36 @@
   overflow: hidden;
 }
 
+.login-title {
+  font-weight: 500;
+  color: white;
+  font-size: 22px;
+  line-height: normal;
+  text-align: center;
+}
+
+.login-desc {
+  color: white;
+  font-size: 15px;
+  line-height: normal;
+  max-width: 400px;
+  text-align: center;
+}
+
+.title-form {
+  font-weight: 500;
+  font-size: 30px;
+  text-align: center;
+}
+
+.desc-form {
+  max-width: 380px;
+  text-align: center;
+  line-height: normal;
+  font-size: 15px;
+  color: #4f4f4fa9;
+}
+
 .container {
   display: flex;
   justify-content: center;
@@ -32,7 +62,7 @@
 .form-container {
   height: 100%;
   margin: 0 auto;
-  max-width: 560px;
+  width: 450px;
 }
 
 .login-bg {
@@ -42,4 +72,10 @@
   background-repeat: no-repeat;
   height: 100vh; /* Full viewport height */
   width: 100%;
+}
+
+.password-toggle-icon {
+  cursor: pointer;
+  font-size: 23px; /* Adjust icon size if needed */
+  position: relative; /* Ensure the icon is positioned correctly */
 }
