@@ -6,13 +6,14 @@
           <v-carousel
             cycle
             height="520"
-            :show-arrows="false"
+            show-arrows="hover"
             hide-delimiter-background>
             <v-carousel-item v-for="(slide, i) in items" :key="i">
-              <v-img :src="slide.img" contain
-              height="300px">
-              </v-img>
-              <v-card class="pt-4 d-flex align-center justify-center flex-column" flat color="transparent">
+              <v-img :src="slide.img" contain height="300px"> </v-img>
+              <v-card
+                class="pt-4 d-flex align-center justify-center flex-column"
+                flat
+                color="transparent">
                 <p class="mb-2 mt-10 login-title">{{ slide.title }}</p>
                 <p class="mt-1 login-desc">{{ slide.description }}</p>
               </v-card>
@@ -21,7 +22,9 @@
         </div>
       </v-col>
       <v-col cols="6">
-        <div class="d-flex align-center flex-column justify-space-between" style="width: 100%; height: 100%">
+        <div
+          class="d-flex align-center flex-column justify-space-between"
+          style="width: 100%; height: 100%">
           <div></div>
           <div class="form-login__container">
             <div class="d-flex align-center justify-center">
@@ -30,18 +33,15 @@
                 max-width="80"
                 contain
                 src="/images/logo.png"
-                class="ml-4 mr-4"
-              >
+                class="ml-4 mr-4">
               </v-img>
             </div>
-            <div class="mt-6 mb-8 d-flex align-center justify-center flex-column">
-              <p class="title-form">
-                Hello Again!
-              </p>
+            <div
+              class="mt-6 mb-8 d-flex align-center justify-center flex-column">
+              <p class="title-form">Hello Again!</p>
               <p class="mt-2 desc-form">
-                Please log in to access Foxi Dashboard. 
-                Here you can manage settings, view data 
-                and utilize various tools.
+                Please log in to access Foxi Dashboard. Here you can manage
+                settings, view data and utilize various tools.
               </p>
             </div>
             <div class="form-container">
@@ -66,45 +66,96 @@
                       variant="outlined"
                       density="compact">
                       <template v-slot:append-inner>
-                        <v-icon 
-                          class="password-toggle-icon" 
-                          @click="show = !show"
-                        >
-                          {{ show ? 'mdi-eye-off' : 'mdi-eye' }}
+                        <v-icon
+                          class="password-toggle-icon"
+                          @click="show = !show">
+                          {{ show ? "mdi-eye-off" : "mdi-eye" }}
                         </v-icon>
                       </template>
-                      </v-text-field>
+                    </v-text-field>
                   </v-col>
-                  <v-col cols="12" class="d-flex align-center justify-space-between mb-4">
+                  <v-col
+                    cols="12"
+                    class="d-flex align-center justify-space-between mb-4">
                     <div class="d-flex align-center">
-                      <v-icon style="margin-left: -3px" class="mr-2" color="#4f4f4fa9">mdi-checkbox-blank-outline</v-icon>
-                      <p style="color: #4f4f4fa9; font-size: 15px">Remember Me</p>
+                      <v-icon
+                        style="margin-left: -3px"
+                        class="mr-2"
+                        color="#4f4f4fa9"
+                        >mdi-checkbox-blank-outline</v-icon
+                      >
+                      <p style="color: #4f4f4fa9; font-size: 15px">
+                        Remember Me
+                      </p>
                     </div>
                     <div>
-                      <p style="color: #ff8417; font-size: 15px; font-weight: 500">Forgot Password</p>
+                      <p
+                        style="
+                          color: #ff8417;
+                          font-size: 15px;
+                          font-weight: 500;
+                        ">
+                        Forgot Password
+                      </p>
                     </div>
                   </v-col>
                 </v-row>
-                <v-btn @click="handleGoogleLogin()" color="#FF8417" height="40" class="mt-2" style="color: white; text-transform: capitalize" flat type="submit" block>Login</v-btn>
-
+                <v-btn
+                  @click="handleGoogleLogin()"
+                  color="#FF8417"
+                  height="40"
+                  class="mt-2"
+                  style="
+                    color: white;
+                    text-transform: capitalize;
+                    letter-spacing: normal;
+                  "
+                  flat
+                  type="submit"
+                  block
+                  >Login</v-btn
+                >
+                <v-btn
+                  variant="outlined"
+                  class="mt-4"
+                  style="letter-spacing: normal"
+                  block>
+                  <template v-slot:default>
+                    <img
+                      src="images/icon/google.png"
+                      alt="Button Image"
+                      contain
+                      height="20"
+                      max-width="20"
+                      class="button-image mr-3" />
+                    <span
+                      style="
+                        text-transform: capitalize;
+                        font-weight: 500;
+                        color: #4f4f4fa9;
+                      "
+                      >Sign in with google</span
+                    >
+                    <!-- Optional text next to the image -->
+                  </template>
+                </v-btn>
               </v-form>
             </div>
           </div>
           <div>
             <p class="mb-8" style="color: #4f4f4fa9; font-size: 16px">
-              Don't have an account yet? 
+              Don't have an account yet?
               <b style="color: #ff8417">Sign Up</b>
             </p>
           </div>
         </div>
-        
       </v-col>
     </v-row>
   </div>
 </template>
 
 <script>
-  import { googleTokenLogin } from "vue3-google-login"
+  import { googleTokenLogin } from "vue3-google-login";
   export default {
     name: "loginComponent",
     data() {
@@ -112,15 +163,17 @@
         show: false,
         items: [
           {
-            img: '/images/banner/banner-1.png',
-            title: 'Streamline Project Workflow',
-            description: 'Visualize project progress and manage tasks efficiently with intuitive tools.'
+            img: "/images/banner/banner-1.png",
+            title: "Streamline Project Workflow",
+            description:
+              "Visualize project progress and manage tasks efficiently with intuitive tools.",
           },
           {
-            img: '/images/banner/banner-2.png',
-            title: 'Unlock Insights with Real-Time Data',
-            description: 'Monitor metrics with live updates and detailed analytics to make informed decisions.'
-          }
+            img: "/images/banner/banner-2.png",
+            title: "Unlock Insights with Real-Time Data",
+            description:
+              "Monitor metrics with live updates and detailed analytics to make informed decisions.",
+          },
         ],
         colors: [
           "indigo",
@@ -151,10 +204,10 @@
     methods: {
       handleGoogleLogin() {
         googleTokenLogin().then((response) => {
-          console.log("Handle the response", response)
-        })
-      }
-    }
+          console.log("Handle the response", response);
+        });
+      },
+    },
   };
 </script>
 
