@@ -2,12 +2,12 @@
   font-weight: 500;
 }
 
-.login-container {
+.signin-container {
   height: 100vh;
   overflow: hidden;
 }
 
-.login-title {
+.signin-title {
   font-weight: 500;
   color: white;
   font-size: 22px;
@@ -15,12 +15,35 @@
   text-align: center;
 }
 
-.login-desc {
+.signin-desc {
   color: white;
   font-size: 15px;
   line-height: normal;
   max-width: 400px;
   text-align: center;
+}
+
+.text-divider {
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
+  color: #4f4f4fa9;
+}
+
+.text-divider:before,
+.text-divider:after {
+  content: "";
+  flex: 1 1;
+  border-bottom: 1px solid #4f4f4fa9;
+  margin: auto;
+}
+
+.text-divider:before {
+  margin-right: 10px;
+}
+
+.text-divider:after {
+  margin-left: 10px;
 }
 
 .title-form {
@@ -65,7 +88,7 @@
   width: 400px;
 }
 
-.login-bg {
+.signin-bg {
   background-image: url("/assets/background-blend.png");
   background-size: cover; /* Cover the entire screen */
   background-position: center; /* Center the image */

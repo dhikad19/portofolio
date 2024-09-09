@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
-import LoginView from "../views/LoginView.vue";
+import SignInView from "../views/SignInView.vue";
+import SignUpView from "../views/SignUpView.vue";
+import NotFound from "../views/NotFoundView.vue";
 
 const routes = [
   {
@@ -9,9 +11,19 @@ const routes = [
     component: HomeView,
   },
   {
-    path: "/login",
-    name: "login",
-    component: LoginView,
+    path: "/signin",
+    name: "signin",
+    component: SignInView,
+  },
+  {
+    path: "/signup",
+    name: "signup",
+    component: SignUpView,
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "NotFound",
+    component: NotFound,
   },
 ];
 

@@ -1,8 +1,8 @@
 <template>
-  <div class="login-container">
+  <div class="signin-container">
     <v-row dense>
       <v-col cols="6">
-        <div class="login-bg d-flex align-center justify-center">
+        <div class="signin-bg d-flex align-center justify-center">
           <v-carousel
             cycle
             height="520"
@@ -14,8 +14,8 @@
                 class="pt-4 d-flex align-center justify-center flex-column"
                 flat
                 color="transparent">
-                <p class="mb-2 mt-10 login-title">{{ slide.title }}</p>
-                <p class="mt-1 login-desc">{{ slide.description }}</p>
+                <p class="mb-2 mt-10 signin-title">{{ slide.title }}</p>
+                <p class="mt-1 signin-desc">{{ slide.description }}</p>
               </v-card>
             </v-carousel-item>
           </v-carousel>
@@ -40,7 +40,7 @@
               class="mt-6 mb-8 d-flex align-center justify-center flex-column">
               <p class="title-form">Hello Again!</p>
               <p class="mt-2 desc-form">
-                Please log in to access Foxi Dashboard. Here you can manage
+                Please log in to access <span style="color: #ff8417">Foxi</span>. Here you can manage
                 settings, view data and utilize various tools.
               </p>
             </div>
@@ -49,18 +49,18 @@
                 <v-row dense>
                   <v-col cols="12">
                     <v-text-field
-                      v-model="firstName"
+                      v-model="email"
                       label="Email"
-                      :rules="firstNameRules"
+                      :rules="emailRules"
                       append-inner-icon="mdi-at"
                       variant="outlined"
                       density="compact"></v-text-field>
                   </v-col>
                   <v-col cols="12">
                     <v-text-field
-                      v-model="lastName"
+                      v-model="password"
                       label="Password"
-                      :rules="lastNameRules"
+                      :rules="passwordRules"
                       @click:append-innner="show = !show"
                       :type="show ? 'text' : 'password'"
                       variant="outlined"
@@ -76,15 +76,29 @@
                   </v-col>
                   <v-col
                     cols="12"
-                    class="d-flex align-center justify-space-between mb-4">
-                    <div class="d-flex align-center">
+                    style="margin-top: -5px;"
+                    class="d-flex align-center justify-space-between mb-4"
+                  >
+                    <div class="d-flex align-center" @click="handleRemember()" style="cursor: pointer">
                       <v-icon
                         style="margin-left: -3px"
                         class="mr-2"
+                        size="20"
                         color="#4f4f4fa9"
-                        >mdi-checkbox-blank-outline</v-icon
+                        v-if="!checkbox"
                       >
-                      <p style="color: #4f4f4fa9; font-size: 15px">
+                        mdi-checkbox-blank-outline
+                      </v-icon>
+                      <v-icon 
+                        v-else 
+                        style="margin-left: -3px"
+                        class="mr-2"
+                        size="20"
+                        color="#ff8417"
+                      >
+                        mdi-checkbox-marked
+                      </v-icon>
+                      <p style="color: #4f4f4fa9; user-select: none; font-size: 14px">
                         Remember Me
                       </p>
                     </div>
@@ -92,7 +106,7 @@
                       <p
                         style="
                           color: #ff8417;
-                          font-size: 15px;
+                          font-size: 14px;
                           font-weight: 500;
                         ">
                         Forgot Password
@@ -113,8 +127,9 @@
                   flat
                   type="submit"
                   block
-                  >Login</v-btn
+                  >Sign in</v-btn
                 >
+                <p class="text-divider mt-4">or</p>
                 <v-btn
                   variant="outlined"
                   class="mt-4"
@@ -145,7 +160,7 @@
           <div>
             <p class="mb-8" style="color: #4f4f4fa9; font-size: 16px">
               Don't have an account yet?
-              <b style="color: #ff8417">Sign Up</b>
+              <b style="color: #ff8417; cursor: pointer" @click="toSignUp()">Sign Up</b>
             </p>
           </div>
         </div>
@@ -157,9 +172,10 @@
 <script>
   import { googleTokenLogin } from "vue3-google-login";
   export default {
-    name: "loginComponent",
+    name: "SignInComponent",
     data() {
       return {
+        checkbox: false,
         show: false,
         items: [
           {
@@ -183,25 +199,25 @@
           "deep-purple accent-4",
         ],
         slides: ["First", "Second", "Third", "Fourth", "Fifth"],
-        firstName: "",
-        firstNameRules: [
-          (value) => {
-            if (value?.length >= 3) return true;
-
-            return "First name must be at least 3 characters.";
-          },
+        email: "",
+        password: "",
+        emailRules: [
+          v => !!v || 'Email is required',
+          v => !v || /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'Email must be valid'
         ],
-        lastName: "",
-        lastNameRules: [
-          (value) => {
-            if (/[^0-9]/.test(value)) return true;
-
-            return "Last name can not contain digits.";
-          },
+        passwordRules: [
+          v => !!v || 'Password is required',
+          v => (v && v.length >= 8) || 'Must be at least 8 characters long',
         ],
       };
     },
     methods: {
+      toSignUp() {
+        this.$router.push({ path: '/signup' })
+      },
+      handleRemember() {
+        this.checkbox = !this.checkbox
+      },
       handleGoogleLogin() {
         googleTokenLogin().then((response) => {
           console.log("Handle the response", response);
