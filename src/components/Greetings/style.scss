@@ -1,0 +1,25 @@
+.greetings-container {
+  padding-top: 70px;
+}
+
+.text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #4f4f4fe5;
+}
+
+.lift-up-enter-active,
+.lift-up-leave-active {
+  transition: opacity 1s ease, filter 1s ease, transform 1s ease;
+}
+
+.lift-up-enter,
+.lift-up-leave-to {
+  opacity: 0;
+  filter: blur(10px);
+  transform: translateY(20px); /* For entering */
+}
+
+.lift-up-leave-to {
+  transform: translateY(-20px); /* For leaving */
+}

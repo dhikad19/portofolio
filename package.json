@@ -9,9 +9,13 @@
     "dev": "vite"
   },
   "dependencies": {
+    "@auth0/auth0-vue": "^2.3.3",
     "@mdi/font": "5.9.55",
+    "@popperjs/core": "^2.11.8",
+    "axios": "^1.7.7",
     "core-js": "^3.8.3",
     "roboto-fontface": "*",
+    "v-calendar": "^3.1.2",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
     "vue3-google-login": "^2.0.33",

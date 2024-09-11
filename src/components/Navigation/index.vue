@@ -1,6 +1,6 @@
 <template>
   <v-layout>
-    <v-app-bar :elevation="0">
+    <v-app-bar :elevation="0" height="75" >
       <!-- <template v-slot:prepend>
         <v-app-bar-nav-icon></v-app-bar-nav-icon>
       </template> -->
@@ -11,7 +11,7 @@
           width="32"
           contain
           src="/images/logo.png"
-          class="ml-4 mr-4"></v-img>
+          class="ml-7 mr-4"></v-img>
         <p class="title-content">Foxi Dashboard</p>
       </div>
       <div style="min-width: 450px" class="d-flex align-center ml-8">
@@ -36,7 +36,7 @@
         </v-row>
       </div>
       <v-spacer></v-spacer>
-      <div class="mr-4 d-flex align-center">
+      <div class="mr-7 d-flex align-center">
         <div
           style="
             height: 40px;
@@ -45,7 +45,7 @@
             background-color: #f6f6f6;
           "
           class="d-flex align-center justify-center mr-4">
-          <v-icon size="20" color="#4f4f4fa9">mdi-cog-outline</v-icon>
+          <v-icon size="20" color="#4f4f4fe5">mdi-cog-outline</v-icon>
         </div>
         <div
           style="
@@ -55,7 +55,7 @@
             background-color: #f6f6f6;
           "
           class="d-flex align-center justify-center mr-4">
-          <v-icon size="20" color="#4f4f4fa9">mdi-bell-outline</v-icon>
+          <v-icon size="20" color="#4f4f4fe5">mdi-bell-outline</v-icon>
         </div>
         <div
           style="
@@ -65,7 +65,10 @@
             background-color: #f6f6f6;
           "
           class="pl-4 pr-4 d-flex align-center justify-center">
-          <p class="pr-4 list-title">Dwi Andika</p>
+          <div class="pr-4">
+            <p class="list-title">Dwi Andika</p>
+            <p class="list-title__sub">Admin</p>
+          </div>
           <v-img
             height="20"
             width="20"
@@ -77,6 +80,7 @@
     <v-navigation-drawer
       v-model="drawer"
       :rail="rail"
+      width="280"
       permanent
       @click="rail = false">
       <!-- <v-list-item
@@ -93,17 +97,18 @@
         </template>
       </v-list-item> -->
       <div class="navigation-container">
-        <v-item-group selected-class="bg-primary" mandatory class="mt-4">
+        <v-item-group selected-class="bg-primary" v-model="navigationMenu" mandatory class="mt-4">
           <v-row dense>
             <v-col cols="12" v-for="(item, i) in list" :key="i">
               <v-item density="compact" nav v-slot="{ isSelected, toggle }">
                 <v-card
                   flat
+                  style="border-radius: 50px;"
                   :class="rail ? 'justify-center' : ''"
-                  class="d-flex align-center pa-2 ml-4 mr-4"
+                  class="d-flex align-center pa-2 ml-4 mr-4 mb-2"
                   @click="toggle"
                   :color="isSelected ? '#ff83171f' : '#ffffff'">
-                  <v-icon :color="isSelected ? '#ff8417' : '#4f4f4fa9'">
+                  <v-icon class="ml-3" :color="isSelected ? '#ff8417' : '#4f4f4fe5'">
                     {{ item.icon }}
                   </v-icon>
                   <p
@@ -119,7 +124,7 @@
         </v-item-group>
         <div class="bottom-container ma-4">
           <v-card flat class="pa-2 d-flex align-center">
-            <v-icon color="#4f4f4fa9">mdi-logout</v-icon>
+            <v-icon color="#4f4f4fe5">mdi-logout</v-icon>
             <p class="bottom-title ml-4">Logout</p>
           </v-card>
         </div>
@@ -137,6 +142,7 @@
     name: "navigationComponent",
     data() {
       return {
+        navigationMenu: 0,
         selected: "home",
         drawer: true,
         rail: false,

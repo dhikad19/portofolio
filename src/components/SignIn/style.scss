@@ -27,14 +27,14 @@
   display: flex;
   flex-direction: row;
   font-size: 14px;
-  color: #4f4f4fa9;
+  color: #4f4f4fe5;
 }
 
 .text-divider:before,
 .text-divider:after {
   content: "";
   flex: 1 1;
-  border-bottom: 1px solid #4f4f4fa9;
+  border-bottom: 1px solid #4f4f4fe5;
   margin: auto;
 }
 
@@ -57,7 +57,7 @@
   text-align: center;
   line-height: normal;
   font-size: 15px;
-  color: #4f4f4fa9;
+  color: #4f4f4fe5;
 }
 
 .container {

@@ -84,7 +84,7 @@
                         style="margin-left: -3px"
                         class="mr-2"
                         size="20"
-                        color="#4f4f4fa9"
+                        color="#4f4f4fe5"
                         v-if="!checkbox"
                       >
                         mdi-checkbox-blank-outline
@@ -98,7 +98,7 @@
                       >
                         mdi-checkbox-marked
                       </v-icon>
-                      <p style="color: #4f4f4fa9; user-select: none; font-size: 14px">
+                      <p style="color: #4f4f4fe5; user-select: none; font-size: 14px">
                         Remember Me
                       </p>
                     </div>
@@ -115,7 +115,7 @@
                   </v-col>
                 </v-row>
                 <v-btn
-                  @click="handleGoogleLogin()"
+                  @click="auth()"
                   color="#FF8417"
                   height="40"
                   class="mt-2"
@@ -132,6 +132,7 @@
                 <p class="text-divider mt-4">or</p>
                 <v-btn
                   variant="outlined"
+                  @click="handleGoogleLogin()"
                   class="mt-4"
                   style="letter-spacing: normal"
                   block>
@@ -147,7 +148,7 @@
                       style="
                         text-transform: capitalize;
                         font-weight: 500;
-                        color: #4f4f4fa9;
+                        color: #4f4f4fe5;
                       "
                       >Sign in with google</span
                     >
@@ -158,7 +159,7 @@
             </div>
           </div>
           <div>
-            <p class="mb-8" style="color: #4f4f4fa9; font-size: 16px">
+            <p class="mb-8" style="color: #4f4f4fe5; font-size: 16px">
               Don't have an account yet?
               <b style="color: #ff8417; cursor: pointer" @click="toSignUp()">Sign Up</b>
             </p>
@@ -212,6 +213,9 @@
       };
     },
     methods: {
+      auth() {
+        localStorage.setItem('authToken', true)
+      },
       toSignUp() {
         this.$router.push({ path: '/signup' })
       },

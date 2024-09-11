@@ -9,16 +9,19 @@ const routes = [
     path: "/",
     name: "home",
     component: HomeView,
+    meta: { requiresAuth: true },
   },
   {
     path: "/signin",
     name: "signin",
     component: SignInView,
+    meta: { requiresUnauth: true },
   },
   {
     path: "/signup",
     name: "signup",
     component: SignUpView,
+    meta: { requiresUnauth: true },
   },
   {
     path: "/:pathMatch(.*)*",
@@ -30,6 +33,24 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+});
+
+router.beforeEach((to, from, next) => {
+  const isAuthenticated = localStorage.getItem("authToken");
+
+  if (
+    to.matched.some((record) => record.meta.requiresAuth) &&
+    !isAuthenticated
+  ) {
+    next("/signin"); // Redirect to login if not authenticated
+  } else if (
+    to.matched.some((record) => record.meta.requiresUnauth) &&
+    isAuthenticated
+  ) {
+    next("/"); // Redirect to dashboard if already authenticated
+  } else {
+    next(); // Allow navigation
+  }
 });
 
 export default router;

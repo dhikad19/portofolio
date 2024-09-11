@@ -89,7 +89,7 @@
                       style="
                         text-transform: capitalize;
                         font-weight: 500;
-                        color: #4f4f4fa9;
+                        color: #4f4f4fe5;
                       "
                       >Sign up with google</span
                     >
@@ -100,7 +100,7 @@
             </div>
           </div>
           <div>
-            <p class="mb-8" style="color: #4f4f4fa9; font-size: 16px">
+            <p class="mb-8" style="color: #4f4f4fe5; font-size: 16px">
               Already have an account?
               <b style="color: #ff8417; cursor: pointer" @click="toSignIn()">Sign In</b>
             </p>
