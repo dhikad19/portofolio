@@ -60,20 +60,35 @@
         <div
           style="
             height: 40px;
+            min-width: 80px;
+            border-radius: 40px;
+            background-color: #f6f6f6;
+          "
+          class="d-flex align-center justify-center mr-4">
+          <p style="font-weight: 500; color: #4f4f4fe5">EN</p>
+          <v-icon size="20" class="ml-1" color="#4f4f4fe5">mdi-chevron-down</v-icon>
+        </div>
+        <div
+          style="
+            height: 40px;
             width: 100%;
             border-radius: 40px;
             background-color: #f6f6f6;
           "
           class="pl-4 pr-4 d-flex align-center justify-center">
-          <div class="pr-4">
-            <p class="list-title">Dwi Andika</p>
+          <div class="mr-6" style="margin-left: 6px">
+            <p class="list-title" style="white-space: nowrap">Dwi Andika</p>
             <p class="list-title__sub">Admin</p>
           </div>
-          <v-img
-            height="20"
-            width="20"
-            contain
-            src="images/male/variant-1.png"></v-img>
+          <div class="d-flex">
+            <v-img
+              height="20"
+              width="20"
+              contain
+              src="images/male/variant-1.png">
+            </v-img>
+            <v-icon color="#4f4f4fe5" class="ml-1">mdi-chevron-down</v-icon>
+          </div>
         </div>
       </div>
     </v-app-bar>

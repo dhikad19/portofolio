@@ -9,7 +9,7 @@
             show-arrows="hover"
             hide-delimiter-background>
             <v-carousel-item v-for="(slide, i) in items" :key="i">
-              <v-img :src="slide.img" contain height="300px"> </v-img>
+              <v-img :src="slide.img" contain height="300px"></v-img>
               <v-card
                 class="pt-4 d-flex align-center justify-center flex-column"
                 flat
