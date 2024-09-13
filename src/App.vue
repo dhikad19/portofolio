@@ -1,6 +1,11 @@
 <template>
-  <router-view/>
+  <div :class="{ dark: isDark }">
+    <router-view/>
+  </div>
 </template>
 
-<style>
-</style>
+<script setup>
+import { useDark } from '@vueuse/core'
+
+const isDark = useDark()
+</script>

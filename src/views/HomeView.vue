@@ -3,10 +3,10 @@
     <NavigationBar style="max-width: 280px" />
     <div class="home-content pl-6 pr-6 mt-6" style="width: 100%">
       <v-row dense>
-        <v-col md="9">
+        <v-col md="8">
           <Greeting />
         </v-col>
-        <v-col md="3">
+        <v-col md="4">
           <Calendar />
         </v-col>
       </v-row>

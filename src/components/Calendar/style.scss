@@ -18,3 +18,13 @@
   color: #4f4f4fe5;
   font-size: 15px;
 }
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 4px;
+  color: white; /* Ensure the icon color is visible on the background */
+}

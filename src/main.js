@@ -9,6 +9,7 @@ import { createI18n } from "vue-i18n";
 import "v-calendar/style.css";
 import router from "./router";
 import store from "./store";
+import "./assets/styles/global.scss";
 
 import en from "./locales/en.json";
 import id from "./locales/id.json";
