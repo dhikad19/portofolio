@@ -1,10 +1,11 @@
 <template>
   <div class="greetings-container">
-    <transition name="lift-up" @before-enter="beforeEnter" @enter="enter" @leave="leave">
-      <p v-if="shouldAnimate" :key="currentText" class="text">
-        {{ currentText }}
-      </p>
-    </transition>
+    <p class="text">
+      {{ texts[0] }}
+    </p>
+    <p class="text-subtitle">
+      {{ texts[1] }}
+    </p>
   </div>
 </template>
 
@@ -14,21 +15,12 @@ export default {
   data() {
     return {
       texts: [],
-      currentIndex: 0,
-      shouldAnimate: true,
     }
   },
   computed: {
     currentText() {
       return this.texts[this.currentIndex];
     },
-  },
-  beforeUnmount() {
-    window.removeEventListener('visibilitychange', this.startTextChange());
-  },
-  mounted() {
-    this.checkTimes()
-    window.addEventListener('visibilitychange', this.startTextChange());
   },
   methods: {
     checkTimes() {
@@ -43,37 +35,9 @@ export default {
         this.texts = ['Hello Dika, Good Night!', 'Keep moving forward, one step at a time!']
       }
     },
-    startTextChange() {
-      if (document.visibilityState === 'visible') {
-        setTimeout(() => {
-          this.shouldAnimate = false;
-          setTimeout(() => {
-            this.currentIndex = (this.currentIndex + 1) % this.texts.length;
-            this.shouldAnimate = true;
-          }, 0);
-          }, 7000);
-        }
-    },
-    beforeEnter(el) {
-      el.style.opacity = 0;
-      el.style.transform = 'translateY(20px)';
-      el.style.filter = 'blur(10px)';
-    },
-    enter(el, done) {
-      el.offsetHeight;
-      el.style.transition = 'opacity 1s ease, filter 1s ease, transform 1s ease';
-      el.style.opacity = 1;
-      el.style.transform = 'translateY(0)';
-      el.style.filter = 'blur(0px)';
-      done();
-    },
-    leave(el, done) {
-      el.style.transition = 'opacity 1s ease, filter 1s ease, transform 1s ease';
-      el.style.opacity = 0;
-      el.style.transform = 'translateY(-20px)';
-      el.style.filter = 'blur(10px)';
-      done();
-    },
+  },
+  mounted() {
+    this.checkTimes()
   }
 }
 </script>

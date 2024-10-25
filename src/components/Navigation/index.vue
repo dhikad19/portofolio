@@ -1,101 +1,11 @@
 <template>
   <v-layout>
-    <v-app-bar :elevation="0" height="75" >
-      <!-- <template v-slot:prepend>
-        <v-app-bar-nav-icon></v-app-bar-nav-icon>
-      </template> -->
-
-      <div class="app-bar__content d-flex align-center">
-        <v-img
-          height="32"
-          width="32"
-          contain
-          src="/images/logo.png"
-          class="ml-7 mr-4"></v-img>
-        <p class="title-content">Foxi Dashboard</p>
-      </div>
-      <div style="min-width: 450px" class="d-flex align-center ml-8">
-        <v-row dense>
-          <v-col cols="12">
-            <v-autocomplete
-              :items="items"
-              append-inner-icon="mdi-magnify"
-              class="mx-auto"
-              density="compact"
-              menu-icon=""
-              elevation="0"
-              placeholder="Search Google or type a URL"
-              theme="light"
-              variant="solo-filled"
-              hide-details
-              auto-select-first
-              item-props
-              rounded>
-            </v-autocomplete>
-          </v-col>
-        </v-row>
-      </div>
-      <v-spacer></v-spacer>
-      <div class="mr-7 d-flex align-center">
-        <div
-          style="
-            height: 40px;
-            min-width: 40px;
-            border-radius: 50%;
-            background-color: #f6f6f6;
-          "
-          class="d-flex align-center justify-center mr-4">
-          <v-icon size="20" color="#4f4f4fe5">mdi-cog-outline</v-icon>
-        </div>
-        <div
-          style="
-            height: 40px;
-            min-width: 40px;
-            border-radius: 50%;
-            background-color: #f6f6f6;
-          "
-          class="d-flex align-center justify-center mr-4">
-          <v-icon size="20" color="#4f4f4fe5">mdi-bell-outline</v-icon>
-        </div>
-        <div
-          style="
-            height: 40px;
-            min-width: 80px;
-            border-radius: 40px;
-            background-color: #f6f6f6;
-          "
-          class="d-flex align-center justify-center mr-4">
-          <p style="font-weight: 500; color: #4f4f4fe5">EN</p>
-          <v-icon size="20" class="ml-1" color="#4f4f4fe5">mdi-chevron-down</v-icon>
-        </div>
-        <div
-          style="
-            height: 40px;
-            width: 100%;
-            border-radius: 40px;
-            background-color: #f6f6f6;
-          "
-          class="pl-4 pr-4 d-flex align-center justify-center">
-          <div class="mr-6" style="margin-left: 6px">
-            <p class="list-title" style="white-space: nowrap">Dwi Andika</p>
-            <p class="list-title__sub">Admin</p>
-          </div>
-          <div class="d-flex">
-            <v-img
-              height="20"
-              width="20"
-              contain
-              src="images/male/variant-1.png">
-            </v-img>
-            <v-icon color="#4f4f4fe5" class="ml-1">mdi-chevron-down</v-icon>
-          </div>
-        </div>
-      </div>
-    </v-app-bar>
-    <v-navigation-drawer
+    <div class="d-flex">
+      <v-navigation-drawer
       v-model="drawer"
       :rail="rail"
-      width="280"
+      width="250"
+      color="#ff8417"
       permanent
       @click="rail = false">
       <!-- <v-list-item
@@ -112,34 +22,36 @@
         </template>
       </v-list-item> -->
       <div class="navigation-container">
-        <v-item-group selected-class="bg-primary" v-model="navigationMenu" mandatory class="mt-4">
-          <v-row dense>
-            <v-col cols="12" v-for="(item, i) in list" :key="i">
-              <v-item density="compact" nav v-slot="{ isSelected, toggle }">
-                <v-card
-                  flat
-                  style="border-radius: 50px;"
-                  :class="rail ? 'justify-center' : ''"
-                  class="d-flex align-center pa-2 ml-4 mr-4 mb-2"
-                  @click="toggle"
-                  :color="isSelected ? '#ff83171f' : '#ffffff'">
-                  <v-icon class="ml-3" :color="isSelected ? '#ff8417' : '#4f4f4fe5'">
-                    {{ item.icon }}
-                  </v-icon>
-                  <p
-                    v-if="!rail"
-                    class="ml-4"
-                    :class="isSelected ? 'list-title__active' : 'list-title'">
-                    {{ item.name }}
-                  </p>
-                </v-card>
-              </v-item>
-            </v-col>
-          </v-row>
-        </v-item-group>
-        <div class="bottom-container ma-4">
-          <v-card flat class="pa-2 d-flex align-center">
-            <v-icon color="#4f4f4fe5">mdi-logout</v-icon>
+        <div>
+          <v-img src="images/icon/logo.png" max-height="32" style="margin-top: 9px"></v-img>
+          <v-item-group selected-class="bg-primary" v-model="navigationMenu" mandatory class="mt-4">
+            <v-row dense>
+              <v-col cols="12" v-for="(item, i) in list" :key="i">
+                <v-item density="compact" nav v-slot="{ isSelected, toggle }">
+                  <v-card
+                    flat
+                    color="transparent"
+                    :class="rail ? 'justify-center' : ''"
+                    class="d-flex align-center pa-2"
+                    @click="toggle">
+                    <v-icon class="ml-3" :color="isSelected ? '#ffffff' : '#ffd7b3'">
+                      {{ item.icon }}
+                    </v-icon>
+                    <p
+                      v-if="!rail"
+                      class="ml-4"
+                      :class="isSelected ? 'list-title__active' : 'list-title'">
+                      {{ item.name }}
+                    </p>
+                  </v-card>
+                </v-item>
+              </v-col>
+            </v-row>
+          </v-item-group>
+        </div>
+        <div class="bottom-container">
+          <v-card flat color="transparent" class="pa-2 d-flex align-center">
+            <v-icon color="#ffffff">mdi-logout</v-icon>
             <p class="bottom-title ml-4">Logout</p>
           </v-card>
         </div>
@@ -147,8 +59,12 @@
       <!-- <v-list density="compact" nav mandatory="true" v-model="selected">
         <v-list-item v-for="(item, i) in list" active-color="#FF8417" :key="i" :prepend-icon="item.icon" :title="item.name" :value="item.value"></v-list-item>
       </v-list> -->
-    </v-navigation-drawer>
-    <v-main></v-main>
+      </v-navigation-drawer>
+      <div style="max-height: 70px; position: sticky; top: 0; z-index: 99; width: 100vw; background-color: white; border-bottom: 1px solid #ffecdb;">
+        <div class="navbar-content"></div>
+      </div>
+    <!-- <v-main></v-main> -->
+    </div>
   </v-layout>
 </template>
 
@@ -195,7 +111,22 @@
         ],
       };
     },
-  };
+    methods: {
+      toggleDrawer() {
+      this.drawer = !this.drawer;
+      },
+      checkWidth() {
+        this.drawer = window.innerWidth > 1100;
+      }
+    },
+    mounted() {
+      window.addEventListener('resize', this.checkWidth);
+      this.checkWidth(); // Check on mount
+    },
+    beforeUnmount() {
+      window.removeEventListener('resize', this.checkWidth);
+    },
+  }
 </script>
 
 <style>
